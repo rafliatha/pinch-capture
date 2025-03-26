@@ -1,36 +1,53 @@
-## Hand Gesture Capture
+# Motion Capture dengan Gesture Tangan
 
-### Deskripsi
+Program untuk menangkap gambar menggunakan gesture tangan. Program ini menggunakan MediaPipe untuk mendeteksi tangan dan OpenCV untuk menangkap gambar dari kamera.
 
-Program ini menggunakan OpenCV dan MediaPipe untuk mendeteksi tangan melalui webcam. Jika ibu jari dan telunjuk bersentuhan atau mendekati jarak tertentu, program akan menangkap dan menyimpan gambar secara otomatis.
+## Fitur
 
-### Fitur
-- Deteksi tangan secara real-time menggunakan MediaPipe
-- Menggambar titik dan garis koneksi pada tangan yang terdeteksi
-- Menangkap gambar secara otomatis saat ibu jari dan telunjuk bersentuhan
-- Menyimpan gambar yang ditangkap dalam format .png
+- Deteksi gesture tangan menggunakan MediaPipe
+- Capture gambar otomatis dengan gesture pinch (jempol dan telunjuk)
+- Tampilan real-time dengan OpenCV
+- Visualisasi landmark tangan
+- Penyimpanan gambar otomatis dengan penomoran berurutan
 
-### Prasyarat
-Sebelum menjalankan program, pastikan Anda telah menginstal pustaka berikut:
-    pip install opencv-python mediapipe numpy
+## Persyaratan
 
-### Cara Menjalankan
-- Jalankan program dengan perintah berikut:
+- Python 3.x
+- OpenCV (cv2)
+- MediaPipe
+- NumPy
 
-    python script.py
+## Instalasi
 
-- Program akan menampilkan tampilan video dari webcam.
-- Saat ibu jari dan telunjuk mendekati satu sama lain (kurang dari 30 piksel), program akan menangkap gambar.
-- Gambar yang diambil akan disimpan dalam format capture_X.png, di mana X adalah nomor urutan.
-- Tekan tombol q untuk keluar dari program.
+1. Clone repository ini
+2. Install dependencies yang diperlukan:
+```bash
+pip install opencv-python mediapipe numpy
+```
 
-### Struktur Program
-- Inisialisasi Kamera: Membuka webcam untuk menangkap video secara real-time.
-- Deteksi Tangan: Menggunakan MediaPipe untuk mendeteksi dan melacak posisi tangan.
-- Perhitungan Jarak: Menghitung jarak antara ibu jari dan telunjuk.
-- Penangkapan Gambar: Jika jarak di bawah ambang batas (30 piksel), gambar disimpan.
-- Keluar Program: Tekan q untuk keluar dari program.
+## Cara Penggunaan
 
-### Catatan
-- Pastikan kamera laptop/PC dalam kondisi berfungsi.
-- Sesuaikan threshold jarak jika perlu untuk sensitivitas yang lebih baik.
+1. Jalankan program:
+```bash
+python capture.py
+```
+
+2. Cara menangkap gambar:
+   - Tampilkan tangan Anda di depan kamera
+   - Lakukan gesture pinch (menjepit) dengan jempol dan telunjuk
+   - Program akan otomatis menangkap gambar ketika jarak antara jempol dan telunjuk cukup dekat
+   - Gambar akan disimpan dengan format `capture_X.png` (X adalah nomor urut)
+
+3. Tekan 'q' untuk keluar dari program
+
+## Cara Kerja
+
+Program menggunakan MediaPipe untuk mendeteksi landmark tangan, khususnya posisi jempol dan telunjuk. Ketika jarak antara kedua jari tersebut lebih kecil dari threshold yang ditentukan (30 pixel), program akan otomatis menangkap gambar dari kamera dan menyimpannya ke file.
+
+## Output
+
+Gambar yang ditangkap akan disimpan dalam format PNG dengan nama file:
+- capture_0.png
+- capture_1.png
+- capture_2.png
+dst.
